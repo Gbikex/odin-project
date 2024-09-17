@@ -1,10 +1,11 @@
 body {
   background-color:  #1f2937;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 300px;
+  margin-right: 300px;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .index-header{
@@ -119,22 +120,20 @@ ul > li{
 
 .index-content-body-4{
   display: flex;
-  flex: 1;
   justify-content: center;
+  flex: 1;  
   background-color: white;
+  padding: 30px 50px 30px 50px;
 }
 
 .index-content-body-4 > .adv{
-  display: flex;
-  width:auto;
-  height: 100px;
   align-items: center;
-  background-color: blue;
+  display: flex;
   color: white;
+  background-color: blue;
+  height: 70px;
+  padding: 50px;
   border-radius: 10px;
-  gap: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .index-content-body-4 > .adv > button{
