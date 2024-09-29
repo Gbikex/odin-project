@@ -2,7 +2,7 @@
   let userInput = playerMove();
   let ComputerMove = getComputerMove();
 
-/* Logs to test the values for development */
+/* Logs to  see the values of the variables for development purposes */
   console.log(userInput);
   console.log(ComputerMove);
 
@@ -11,6 +11,12 @@
 
     let playerMove = prompt('To start the game please type in : rock, paper or scissor!');
 
+    playerMove = playerMove;
+
+    if (playerMove == '' || playerMove === null ) {
+      console.log('No value inserted');
+    } else {
+
     playerMove = playerMove.toLowerCase();
     playerMove = playerMove.charAt(0).toUpperCase() + playerMove.slice(1);
     
@@ -18,6 +24,7 @@
       return playerMove
     } else alert('Please type in rock,paper or scissor to start the game!');
     location.reload();
+    }
   }
 
 /* Function generates random moves via Math.random function */
@@ -41,7 +48,7 @@
     } 
   };
 
-/*Rock paper scissor game that plays the game upon user input and random generated select*/
+/* Rock paper scissor game that plays the game upon user input and random generated select*/
   function playRPSCGame(){
     if (userInput === 'Rock') {
       if (ComputerMove === 'Rock') {
