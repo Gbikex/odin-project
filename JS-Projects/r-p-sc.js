@@ -1,9 +1,13 @@
 
+let userInput = 'Scissor';
+let ComputerMove = getComputerMove();
+
+/* Logs to test the values for development */
+console.log(userInput);
+console.log(ComputerMove);
+
+
 /* Function generates random moves via Math.random function */
-
-  let userInput = 'Scissor';
-  console.log(userInput);
-
 function getComputerMove() {
 
     const randomNumber = Math.random();
@@ -24,11 +28,7 @@ function getComputerMove() {
     } 
   };
 
-  let ComputerMove = getComputerMove();
-
-  console.log(ComputerMove);
-
-
+/*Rock paper scissor game that plays the game upon user input and random generated select*/
   function playRPSCGame(){
     if (userInput === 'Rock') {
       if (ComputerMove === 'Rock') {
@@ -57,6 +57,7 @@ function getComputerMove() {
       }
     }
 
+/* Calling functions */
   playRPSCGame();
 
 
