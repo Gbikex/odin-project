@@ -1,7 +1,8 @@
 
 /* Function generates random moves via Math.random function */
 
-  let userInput = 'Rock';
+  let userInput = 'Scissor';
+  console.log(userInput);
 
 function getComputerMove() {
 
@@ -18,7 +19,7 @@ function getComputerMove() {
       console.log(computerMove);
     } 
     else if (randomNumber > 0.6 && randomNumber <= 1) {
-      return computerMove = 'Scissors';
+      return computerMove = 'Scissor';
       console.log(computerMove);
     } 
   };
@@ -30,13 +31,31 @@ function getComputerMove() {
 
   function playRPSCGame(){
     if (userInput === 'Rock') {
-      if (ComputerMove === 'Rock' ) {
-        console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: draw!`);
+      if (ComputerMove === 'Rock') {
+        console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Draw!`);
+      } else if(ComputerMove === 'Paper') {
+        console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Computer Win!`);
+      } else if(ComputerMove === 'Scissor') {
+        console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Player Win!`);
       }
-      else ('Under development');
+      }else if (userInput === 'Paper') {
+        if (ComputerMove === 'Rock') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Player Win!`);
+        } else if(ComputerMove === 'Paper') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Draw!`);
+        } else if(ComputerMove === 'Scissor') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Computer Win!`);
+        }
+      } else if (userInput === 'Scissor') {
+        if (ComputerMove === 'Rock') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Computer Win!`);
+        } else if(ComputerMove === 'Paper') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Player Win!`);
+        } else if(ComputerMove === 'Scissor') {
+          console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Draw!`);
+        }
+      }
     }
-
-  }
 
   playRPSCGame();
 
