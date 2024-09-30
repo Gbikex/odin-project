@@ -84,8 +84,12 @@
       }
     }
 
+/* Function with a better structure with added result count */    
   function playRound(humanChoice ,computerChoice) {
 
+    let computerScore = localStorage.getItem("compResult");
+    let humanScore = localStorage.getItem("humanResult");
+    
     humanChoice = playerMove();
     computerChoice = getComputerMove();
 
@@ -159,12 +163,14 @@
 
         console.log(`${humanChoice} hits ${computerChoice} it is a draw!`)
 
-        computerScore ++;
+        humanScore ++;
         computerScore ++;
 
         console.log(computerScore,humanScore);
       }
     }
+    localStorage.setItem('compResult',computerScore);
+    localStorage.setItem('humanResult',humanScore);
   }
 
 
