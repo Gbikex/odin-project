@@ -1,10 +1,12 @@
 
-  let userInput = playerMove();
-  let ComputerMove = getComputerMove();
+  let humanScore = 0;
+  let computerScore = 0;
 
-/* Logs to  see the values of the variables for development purposes */
+/* Logs to  see the values of the variables for development purposes 
   console.log(userInput);
   console.log(ComputerMove);
+*/
+
 
 /* Player move => input value, accepts only rock/paper/scissors case sensitivity does not matter, handled in the function*/
   function playerMove() {
@@ -50,6 +52,11 @@
 
 /* Rock paper scissor game that plays the game upon user input and random generated select*/
   function playRPSCGame(){
+
+    let userInput = playerMove();
+    let ComputerMove = getComputerMove();
+
+
     if (userInput === 'Rock') {
       if (ComputerMove === 'Rock') {
         console.log(`Player choose ${userInput} and Computer choose ${ComputerMove}, result: Draw!`);
@@ -77,7 +84,92 @@
       }
     }
 
+  function playRound(humanChoice ,computerChoice) {
+
+    humanChoice = playerMove();
+    computerChoice = getComputerMove();
+
+    if (humanChoice === 'Rock') {
+      if(computerChoice === 'Rock'){
+
+        console.log(`${humanChoice} hits ${computerChoice} it is a draw!`);
+
+        computerScore ++;
+        humanScore ++;
+
+        console.log(computerScore,humanScore)
+
+      }else if (computerChoice === 'Paper') {
+
+        console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`);
+
+        computerScore ++;
+
+        console.log(computerScore,humanScore);
+      }else if (computerChoice === 'Scissor') {
+
+        console.log(`${humanChoice} beats ${computerChoice} Player wins!`)
+
+        humanScore ++;
+
+        console.log(computerScore,humanScore);
+      }
+    }else if (humanChoice === 'Paper') {
+      if(computerChoice === 'Rock'){
+
+        console.log(`${humanChoice} beats ${computerChoice} Player wins!`);
+
+        humanScore ++;
+
+        console.log(computerScore,humanScore)
+
+      }else if (computerChoice === 'Paper') {
+
+        console.log(`${humanChoice} hits ${computerChoice} it is a draw!`);
+
+        humanScore ++;
+        computerScore ++;
+
+        console.log(computerScore,humanScore);
+      }else if (computerChoice === 'Scissor') {
+
+        console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`)
+
+        computerScore ++;
+
+        console.log(computerScore,humanScore);
+      }
+    }else if (humanChoice === 'Scissor') {
+      if(computerChoice === 'Rock'){
+
+        console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`);
+
+        computerScore ++;
+
+        console.log(computerScore,humanScore)
+
+      }else if (computerChoice === 'Paper') {
+
+        console.log(`${humanChoice} beats ${computerChoice} Player wins!`);
+
+        humanScore ++;
+
+        console.log(computerScore,humanScore);
+      }else if (computerChoice === 'Scissor') {
+
+        console.log(`${humanChoice} hits ${computerChoice} it is a draw!`)
+
+        computerScore ++;
+        computerScore ++;
+
+        console.log(computerScore,humanScore);
+      }
+    }
+  }
+
+
 /* Calling functions */
-  playRPSCGame();
+ /*  playRPSCGame(); */
 
 
+ playRound();
