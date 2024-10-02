@@ -11,11 +11,11 @@
 /* Player move => input value, accepts only rock/paper/scissors case sensitivity does not matter, handled in the function*/
   function playerMove() {
 
-    let playerMove = prompt('To start the game please type in : rock, paper or scissor!');
+    let playerMove = prompt('To start the game please type in : rock, paper or scissor!','Rock');
 
     playerMove = playerMove;
 
-    if (playerMove == '' || playerMove === null ) {
+    if (playerMove == '' && playerMove === null ) {
       console.log('No value inserted');
     } else {
 
@@ -87,9 +87,12 @@
 /* Function with a better structure with added result count */    
   function playRound(humanChoice ,computerChoice) {
 
-    let computerScore = localStorage.getItem("compResult");
-    let humanScore = localStorage.getItem("humanResult");
+    let computerScore = localStorage.getItem("compResult") || 0;
+    let humanScore = localStorage.getItem("humanResult") || 0;
     
+    console.log(computerScore);
+    console.log(humanScore);
+
     humanChoice = playerMove();
     computerChoice = getComputerMove();
 
@@ -101,7 +104,7 @@
         computerScore ++;
         humanScore ++;
 
-        console.log(computerScore,humanScore)
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
 
       }else if (computerChoice === 'Paper') {
 
@@ -109,14 +112,14 @@
 
         computerScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }else if (computerChoice === 'Scissor') {
 
         console.log(`${humanChoice} beats ${computerChoice} Player wins!`)
 
         humanScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }
     }else if (humanChoice === 'Paper') {
       if(computerChoice === 'Rock'){
@@ -125,7 +128,7 @@
 
         humanScore ++;
 
-        console.log(computerScore,humanScore)
+        console.log(`Computer:${computerScore}, Player:${humanScore}`)
 
       }else if (computerChoice === 'Paper') {
 
@@ -134,14 +137,14 @@
         humanScore ++;
         computerScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }else if (computerChoice === 'Scissor') {
 
         console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`)
 
         computerScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }
     }else if (humanChoice === 'Scissor') {
       if(computerChoice === 'Rock'){
@@ -150,7 +153,7 @@
 
         computerScore ++;
 
-        console.log(computerScore,humanScore)
+        console.log(`Computer:${computerScore}, Player:${humanScore}`)
 
       }else if (computerChoice === 'Paper') {
 
@@ -158,7 +161,7 @@
 
         humanScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }else if (computerChoice === 'Scissor') {
 
         console.log(`${humanChoice} hits ${computerChoice} it is a draw!`)
@@ -166,12 +169,23 @@
         humanScore ++;
         computerScore ++;
 
-        console.log(computerScore,humanScore);
+        console.log(`Computer:${computerScore}, Player:${humanScore}`);
       }
     }
     localStorage.setItem('compResult',computerScore);
     localStorage.setItem('humanResult',humanScore);
-  }
+
+/*Plays five games return winner and resets variables*/
+    if (computerScore === 5) {
+      console.log('Computer wins')
+      localStorage.clear();
+    } else if(humanScore === 5) {
+      console.log('Player wins')
+      localStorage.clear();
+    }
+
+}
+
 
 
 /* Calling functions */
