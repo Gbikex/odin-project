@@ -186,10 +186,115 @@
 
 }
 
+/*Function here uses a loop instead an if statement*/    
+function playRoundLoop(humanChoice ,computerChoice) {
 
+  let computerScore = localStorage.getItem("compResult") || 0;
+  let humanScore = localStorage.getItem("humanResult") || 0;
 
+  console.log(computerScore);
+  console.log(humanScore);
+
+  for (let i = 1; i <=5; i++) {
+    console.log(i);
+  if (i < 5) {   
+  humanChoice = playerMove();
+  computerChoice = getComputerMove();
+
+  if (humanChoice === 'Rock') {
+    if(computerChoice === 'Rock'){
+
+      console.log(`${humanChoice} hits ${computerChoice} it is a draw!`);
+
+      computerScore ++;
+      humanScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+
+    }else if (computerChoice === 'Paper') {
+
+      console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`);
+
+      computerScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }else if (computerChoice === 'Scissor') {
+
+      console.log(`${humanChoice} beats ${computerChoice} Player wins!`)
+
+      humanScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }
+  }else if (humanChoice === 'Paper') {
+    if(computerChoice === 'Rock'){
+
+      console.log(`${humanChoice} beats ${computerChoice} Player wins!`);
+
+      humanScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`)
+
+    }else if (computerChoice === 'Paper') {
+
+      console.log(`${humanChoice} hits ${computerChoice} it is a draw!`);
+
+      humanScore ++;
+      computerScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }else if (computerChoice === 'Scissor') {
+
+      console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`)
+
+      computerScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }
+  }else if (humanChoice === 'Scissor') {
+    if(computerChoice === 'Rock'){
+
+      console.log(`${computerChoice} beats ${humanChoice}, Computer wins!`);
+
+      computerScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`)
+
+    }else if (computerChoice === 'Paper') {
+
+      console.log(`${humanChoice} beats ${computerChoice} Player wins!`);
+
+      humanScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }else if (computerChoice === 'Scissor') {
+
+      console.log(`${humanChoice} hits ${computerChoice} it is a draw!`)
+
+      humanScore ++;
+      computerScore ++;
+
+      console.log(`Computer:${computerScore}, Player:${humanScore}`);
+    }
+  }
+    localStorage.setItem('compResult',computerScore);
+    localStorage.setItem('humanResult',humanScore);
+
+  }else if (i === 5) {
+    if (computerScore > humanScore) {
+      console.log('Computer wins!');
+      localStorage.clear();
+    }else if (computerScore < humanScore) {
+      console.log('Player wins!');
+      localStorage.clear();
+    }else if (computerScore === humanScore) {
+      console.log('Draw!');
+      localStorage.clear();
+    }
+   }
+  }
+}
 /* Calling functions */
- /*  playRPSCGame(); */
-
-
- playRound();
+/*playRPSCGame(); */
+/*playRound();*/
+playRoundLoop();
