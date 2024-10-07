@@ -195,9 +195,9 @@ function playRoundLoop(humanChoice ,computerChoice) {
   console.log(computerScore);
   console.log(humanScore);
 
-  for (let i = 1; i <=5; i++) {
+  for (let i = 1; i <=6; i++) {
     console.log(i);
-  if (i < 5) {   
+  if (i < 6) {   
   humanChoice = playerMove();
   computerChoice = getComputerMove();
 
@@ -280,7 +280,7 @@ function playRoundLoop(humanChoice ,computerChoice) {
     localStorage.setItem('compResult',computerScore);
     localStorage.setItem('humanResult',humanScore);
 
-  }else if (i === 5) {
+  }else if (i === 6) {
     if (computerScore > humanScore) {
       console.log('Computer wins!');
       localStorage.clear();
